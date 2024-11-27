@@ -8,34 +8,38 @@ public class Main {
 
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter 1 if you want to convert from km to miles, otherwise enter 2");
-        int choice = scanner.nextInt();
+        try {
+            System.out.println("Enter 1 if you want to convert from km to miles, otherwise enter 2");
+            int choice = scanner.nextInt();
 
-        double number;
+            double number;
 
 
+            if (choice == 1) {
+                System.out.println("Enter your number which you want to convert");
+                number = scanner.nextDouble();
 
-        if (choice == 1) {
-            System.out.println("Enter your number which you want to counvert");
-            number = scanner.nextDouble();
+                System.out.println(number + "km = "+convkmTomiles(number)+"miles");}
+        else if (choice ==2 ){
+                System.out.println("Enter your number which you want to convert");
+                number = scanner.nextDouble();
 
-            System.out.println(number + "km = "+convkm2miles(number)+"miles");}
-    else if (choice ==2 ){
-            System.out.println("Enter your number which you want to counvert");
-            number = scanner.nextDouble();
-
-            System.out.println(number + "miles = "+convmiles2km(number)+"km");
+                System.out.println(number + "miles = "+convmilesTokm(number)+"km");
+            }
+            else System.out.println("Sorry you entered invalid value");
+        } catch (Exception e) {
+            System.out.println("Please Enter just Numbers ");
         }
-        else System.out.println("Sorry you enetered unvalid value");
 
 
     }
 
-    private static double convmiles2km(double number) {
+    private static double convmilesTokm(double number) {
         return 1.60934 * number;
     }
 
-    private static double convkm2miles(double number) {
+
+    private static double convkmTomiles(double number) {
         return 0.621371*number;
     }
 }
